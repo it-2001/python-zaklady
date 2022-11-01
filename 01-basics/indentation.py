@@ -50,3 +50,19 @@ aspoň jednu podmínku if a funkci print(). Dodržte správné odsazování kód
 Do konzole vypište nejprve docstring vaší funkce a potom zavolejte funkci samotnou.   
 """
 
+
+def lukijecute(tkhle):
+    """
+    Luki je cute, to všichni víme, jak moc je ale cute?
+    Má revoluční funkce na tuto otázku zodpoví a vy si konečně můžete přestat škrábat hlavu.
+    """
+    print("Takhle moc: ", tkhle)
+    for i in range(0,tkhle):
+        print("Uff ")
+    if i > 20:
+        print("Mega-Uff")
+    else:
+        print("Mini-Uff")
+
+print(lukijecute.__doc__)
+lukijecute(32)
