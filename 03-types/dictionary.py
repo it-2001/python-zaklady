@@ -5,8 +5,8 @@ klíč (angl. key) a hodnotu (angl. value).
 Každému klíči je přiřazena jedna hodnota.
 '''
 
-# Collection which is unordered, changeable and indexed.
-# In Python dictionaries are written with curly brackets, and they have keys and values.
+# Kolekce, která je neuspořádaná, měnitelná a indexovaná.
+# V Pythonu jsou slovníky psány se složenými závorkami a mají klíče a hodnoty.
 car = {
   'brand': 'Ford',
   'model': 'Mustang',
@@ -32,10 +32,10 @@ print(f'point.get("x"): {point.get("x")}')
 if 'z' in point:
     print(f'point.get("z"): {point.get("z")}')
 
-# Když hodnota neexistuje, vrací 0    
+# Když hodnota neexistuje, vrací 0
 print(f'point.get("v", 0): {point.get("v", 0)}')
 
-# Odstranění prvku ze slovníku  
+# Odstranění prvku ze slovníku
 del point['x']
 print(f'point: {point}')
 
@@ -48,7 +48,7 @@ print(f'car.popitem(): {car.popitem()}')
 for key, value in point.items():
     print(f'{key} - {value}')
 
-# Dictionary comprehension - zkráceně vytvoří slovník, jehož klíče tvoří čísla od 0 do 9 a hodnoty druhé mocniny 
+# Dictionary comprehension - zkráceně vytvoří slovník, jehož klíče tvoří čísla od 0 do 9 a hodnoty druhé mocniny
 values = {x: x ** 2 for x in range(10)}
 print(f'values: {values}')
 
@@ -94,3 +94,44 @@ child3          Linus               2011
 ---------------------------------------------
 Počet záznamů: 3
 '''
+
+cars = {
+  "car1": {
+    "brand":"Ford",
+    "model":"Mustang",
+    "madein":2015,
+    "colors":list(("blue", "white", "vine","lime", "black")),
+    "nationality":"America",
+    "horsepower": "430",
+    "maxspeed": "250km/h"
+  },
+  "car2": {
+    "brand":"Porsche",
+    "model":("Turbo", "Cabriolet", "S"),
+    "madein":2004,
+    "colors":list(("blue", "white", "vine", "black")),
+    "nationality":"German",
+    "horsepower": "650",
+    "maxspeed": "330km/h"
+  },
+  "car3": {
+    "brand":"Lamborghini",
+    "model":"Huracán",
+    "madein":2014,
+    "colors":list(("blue", "white","grey", "black", "yellow")),
+    "nationality":"Italy",
+    "horsepower": "602",
+    "maxspeed": "330km/h"
+  },
+}
+del cars["car3"]
+cars["car4"] = {
+    "brand":"Mazda",
+    "model":("Rx-7","FC"),
+    "madein":1986,
+    "colors":list(("blue", "white","grey", "black")),
+    "nationality":"Japan",
+    "horsepower": "185",
+    "maxspeed": "210km/h"
+}
+print(cars)

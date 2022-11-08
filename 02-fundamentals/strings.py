@@ -1,5 +1,5 @@
 # Znakové řetězce mohou být uvozeny jednoduchými i dvojitými uvozovkami
-from random import random
+import random
 
 course_name = "Python programming"
 
@@ -153,39 +153,38 @@ funkční kód, tím lepší).
 
 1. Převeďte "česky" zadané datum - např. 12. 10. 2020 - do podoby "databázové" podoby - např. 2020-10-12
 '''
-input = "12. 10. 2020".split(". ")
-result = f"{input[2]}-{input[1]}-{input[0]}"
-print(result)
-''' 
+split = "12. 10. 2020".split(". ")
+database_date = f"{split[2]}-{split[1]}-{split[0]}"
+print(database_date)
+'''
 2. Vytvořte funkci, která vyrobí ze zadaného sousloví:
    a) identifikátor pro proměnné používané v Pythonu - např. To je proměnná v Pythonu = to_je_promenna_v_pythonu
    b) identifikátor pro camel syntax v JS - např. To je proměnná v Pythonu = toJePromennaVPythonu 
    Obě možnosti by měly být vyřešeny v jedné funkci s využitím parametrů.
    Kdo si chce úkol trochu zjednodušit, nemusí řešit znaky s českou diakritikou. 
 '''
-def python_identifyer(str="To je proměnná v Pythonu"):
-    return str.replace(" ", "_").lower()
-
-
-def js_identifyer(str="To je proměnná v Pythonu"):
-    return
-''' 
+promenna = "To je proměnná v Pythonu"
+snake = promenna.replace(" ", "_").lower()
+camel = promenna.title().replace(" ", "")
+print(promenna)
+print(snake)
+print(camel)
+'''
 3. Vytvořte funkci, která vygeneruje náhodná hesla pro počet osob zadaný v parametru tak, aby heslo začínalo
    3 velkými písmeny, pokračovalo 3 malými písmeny, jedním speciálním znakem (-/+*) a končilo 3 náhodnými číslicemi.
 '''
 
 
-def get_password(upper=3, lower=3, special=1, numbers=3):
+def random_pw(upper=3, lower=3, special=1, numbers=3):
     result = ""
-    for i in range(upper):
-        result += chr((random() * 25 + 65).__floor__())
-    for i in range(lower):
-        result += chr((random() * 25 + 97).__floor__())
-    for i in range(special):
-        result += chr((random() * 16 + 33).__floor__())
-    for i in range(numbers):
-        result += str((random() * 10).__floor__())
+    for i in range(0, upper):
+        result += str(chr(random.randint(65, 90)))
+    for i in range(0, lower):
+        result += str(chr(random.randint(97, 122)))
+    for i in range(0, special):
+        result += str(chr(random.randint(32, 47)))
+    for i in range(0, numbers):
+        result += str(random.randint(0,9))
     return result
 
-
-print("moje heslo: " + get_password())
+print(random_pw())

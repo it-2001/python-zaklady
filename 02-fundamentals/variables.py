@@ -30,10 +30,11 @@ Některé objekty mohou mít explicitně přiřazené jméno, obecně označovan
 '''Úkol A'''
 #? Najděte na Internetu, jakými funkcemi lze v Pythonu zjistit
 #? a) typ objektu
-print(type(students_count), hex(id(students_count)))
 #? b) identitu objektu (jeho adresu v paměti)
-print(id(is_published), hex(id(is_published)))
 #? Ukažte to na příkladech proměnných students_count, rating, is_published a vypište výstupy do konzole
+print(type(students_count), id(students_count))
+print(type(rating), id(rating))
+print(type(is_published), id(is_published))
 
 # Numerické operátory
 # print(10 + 3)
@@ -47,6 +48,9 @@ print(id(is_published), hex(id(is_published)))
 # Mocnina
 # print(2 ** 10)
 
+
+
+
 '''
 Příklady použití numerických literálů (numeric literals)
 '''
@@ -57,7 +61,7 @@ hexadecimal = 0x12c #Hexadecimal Literal
 
 # print(binary, octal, decimal, hexadecimal)
 # Převod desítkového čísla na binární, oktalové a hexadecimální
-# print(bin(255), oct(255), hex(255))
+#print(bin(255), oct(255), hex(255))
 
 
 # Převod binárního čísla na desítkové
@@ -67,16 +71,23 @@ hexadecimal = 0x12c #Hexadecimal Literal
 
 
 '''Úkol B'''
-#? Vypište do poznámky všechny bitové operátory, které nabízí Python
-# & - bitovy soucin, | - soucet, ~ - negace, << - posun vlevo, >> - posun vpravo
+#? Vypište do poznámky všechny bitové operátory, které nabízí Python &(bitový součin), | (součet), ~ (negace), ~ (xor), << (úosun vlevo) >>(posun vpravo)
 #? Do proměnné myself_binary uložte binární číslo vytvořené na základě osmi prvních znaků z vašeho jména a příjmení (souhláska = 1, samohláska 0)
-myself_binary = 0b1010011
+myself_binary = 0b10101101
 #? Příklad - HildaDok: 10110101
 #? Vypište toto binární číslo v desítkové soustavě
-#print(bin(myself_binary), base=10)
+print(int(myself_binary))
 #? Pro toto binární číslo proveďte nejprve bitový posun o 2 bity vpravo, poté vypište výsledek v desítkové soustavě
-myself_binary >>= 2
+myself_binary <<= 2
+print(int(myself_binary))
 #? Proveďte bitový součin hexadecimálního čísla "1A" a vašeho binárního čísla a opět vypište v desítkové soustavě
+c1 = int(0x1A)
+c2  = int(myself_binary)
+res = c1 & c2
+print(res)
+print("Binární součin čísla {} a {} je {}".format(bin(c1), bin(c2), bin(res)))
+print(f"Binární součin čísla {bin(c1)} a {bin(c2)} je {bin(res)}")
+print(int(0x1A) & int(myself_binary))
 #? Výsledek zobrazte jako formátovaný řetězec - např. "Binární součin čísla 0b11010 a 0b10110101 je 0b10000"
 
 
@@ -93,16 +104,16 @@ float_2 = 1.5e2 # Zápis reálného čísla pomocí exponentu = 1.5 * (10 ** 2)
 
 # Použití vestavěných matematických funkcí
 # print(round(rating))
-# Použití importovaného modulu math a jeho metod
-import math
-# print(math.floor(rating))
-# print(math.cos(45))
+# # Použití importovaného modulu math a jeho metod
+# import math
+# # print(math.floor(rating))
+# # print(math.cos(45))
 
 # Zjištění datového typu
-# x = input("x: ")
+x = input("x: ")
 # Vrátí typ str - proto je nutná typová konverze - int(), float()
 # Typová konverze
-# print(int(x) + 20)
+print(int(x, base=16) + 20)
 
 # Komplexní čísla a Python
 '''Python plně podporuje komplexní čísla, přičemž imaginární číslo je zapisováno s příponou "j" nebo "J". 
@@ -144,5 +155,3 @@ Speciální proměnná _ reprezentuje předešlý výsledek.
 Varování: Hodnota proměnné _ by nikdy neměla být modifikována uživatelem. 
 Pokud byste jí přiřadili hodnotu, vytvořili byste nezávislou lokální proměnnou se stejným jménem, 
 která by zakryla interní proměnnou s tímto chováním.'''
-
-
